@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CUED 3500 | Lesson Planning Home</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#173a56;background:#f2f7fc;scroll-behavior:smooth}
+*{box-sizing:border-box}body{margin:0}a{color:#0a669d}a:hover{text-decoration-thickness:2px}
+.hero{background:linear-gradient(115deg,#073b64,#0d669b 75%,#1789bd);color:white;padding:38px 20px 43px}
+.wrap{max-width:1150px;margin:auto}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:800;color:#addfff}
+.hero h1{font-size:clamp(30px,4vw,49px);line-height:1.12;margin:10px 0}.hero p{color:#d9ecf9;max-width:700px;font-size:17px;line-height:1.6}
+.hero-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.hero-links a{padding:11px 16px;background:#fff;color:#08436e;border-radius:9px;text-decoration:none;font-weight:750}.hero-links a.alt{background:#ffffff18;color:#fff;border:1px solid #ffffff80}
+.layout{max-width:1150px;margin:24px auto;padding:0 18px 60px;display:grid;grid-template-columns:260px minmax(0,1fr);gap:22px;align-items:start}
+.panel,.side{background:#fff;border:1px solid #dce8f2;border-radius:16px;box-shadow:0 4px 18px #2342a10a}
+.side{position:sticky;top:16px;padding:20px}.panel{padding:clamp(18px,3vw,30px);margin-bottom:20px}
+h2{font-size:clamp(23px,3vw,30px);margin:0 0 10px}h3{font-size:19px;margin:0 0 8px}
+p,li{line-height:1.58}p{margin:8px 0 13px}.muted{color:#58738a}.small{font-size:13px}.mini{font-size:12px}
+.side h2{font-size:16px}.side a.nav{display:block;padding:10px 9px;border-radius:9px;text-decoration:none;color:#25536e;font-weight:650}.side a.nav:hover{background:#e9f4fc}
+label{font-weight:750;display:block;margin:13px 0 6px}input,select{font:inherit;border:1px solid #b3cadb;border-radius:9px;padding:11px;color:#193e5b;max-width:100%;background:white}input{width:100%}
+button,.btn{font:inherit;cursor:pointer;background:#0e6398;color:white;border:0;border-radius:9px;padding:11px 15px;font-weight:750;text-decoration:none;display:inline-block}button.secondary,.btn.secondary{background:#e9f2f9;color:#145076}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #e9aa31;outline-offset:2px}
+.progress{height:11px;background:#dbe9f3;border-radius:20px;overflow:hidden}.progress>div{background:#168a73;height:100%;width:0%;transition:width .2s}
+.score{font-size:36px;font-weight:850;letter-spacing:-.04em;color:#07537f}.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.stat{background:#f3f8fc;border:1px solid #dfebf3;border-radius:12px;padding:15px}.stat strong{display:block;font-size:25px;color:#07537f}
+.chapter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:20px}
+.chapter{border:1px solid #d7e5ef;border-radius:13px;padding:18px;display:flex;flex-direction:column;gap:10px;background:#fff}
+.chapter-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.num{background:#e2f1fc;color:#0b5b8b;border-radius:8px;padding:7px 11px;font-weight:850}.points{font-size:13px;color:#496b82;font-weight:700}.chapter h3{margin:0}.chapter p{font-size:13px;color:#5b7387;margin:0;flex:1}.chapter .btn{align-self:flex-start}
+.tag{font-size:12px;background:#e8f4fa;border-radius:100px;padding:5px 10px;color:#225c7c;font-weight:750}
+.callout{background:#eaf5fe;border-left:4px solid #2583b7;border-radius:9px;padding:15px;margin:17px 0}
+.warn{background:#fff5e7;border-left:4px solid #ce922d;border-radius:9px;padding:15px;margin:17px 0}
+.resource{display:flex;justify-content:space-between;align-items:center;gap:14px;border:1px solid #dce8f2;border-radius:12px;padding:16px;margin:12px 0;flex-wrap:wrap}
+.companion-layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:16px;margin-top:18px}
+.section-buttons{display:flex;flex-direction:column;gap:5px;max-height:640px;overflow-y:auto}
+.section-buttons button{background:#f2f7fb;color:#1e4d6b;text-align:left;font-size:13px;padding:11px;border:1px solid transparent}
+.section-buttons button[aria-pressed="true"]{background:#e3f2fd;border-color:#7fb5d8;color:#084c7c}
+.example{border:1px solid #dce8f2;border-radius:10px;padding:15px;margin:13px 0;background:#f8fbfe}
+.example strong{display:block;margin-bottom:5px}.good strong{color:#166f52}.bad strong{color:#99582a}
+.detail{min-width:0}.detail h3{font-size:23px;margin:7px 0 9px}.detail p{overflow-wrap:anywhere}
+.bottom{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.checklist label{display:flex;gap:12px;align-items:flex-start;font-weight:450;margin:12px 0;padding:8px;border-bottom:1px solid #eef3f7}
+.checklist input{width:18px;height:18px;margin:3px 0 0;flex:none}
+footer{color:#60788c;font-size:13px;margin-top:24px}.hidden{display:none}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:static}.side-links{display:flex;flex-wrap:wrap;gap:5px}.chapter-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.companion-layout{grid-template-columns:1fr}.section-buttons{display:grid;grid-template-columns:repeat(2,1fr);max-height:260px}.statrow{grid-template-columns:1fr 1fr}.hero{padding:26px 18px}.panel{padding:17px}}
+@media print{.hero,.side,.hero-links,.section-buttons,.bottom,.chapter-grid{display:none!important}.layout{display:block}.panel{box-shadow:none;border:0}.companion-layout{display:block}}
+</style></head><body>
+<header class="hero"><div class="wrap">
+<div class="eyebrow">CUED 3500 · UDL Lesson Planning</div>
+<h1>Your Lesson Planning Home</h1>
+<p>Build one coherent lesson, one decision at a time. Keep your lesson-plan template open, work through the seven chapters, and use the companion guide whenever you need a reminder or an example.</p>
+<div class="hero-links"><a href="#learning">Go to my chapters</a><a class="alt" href="#companion">Open lesson-plan companion</a><a class="alt" href="assets/CUED3500_Lesson_Plan_Template_with_Explanations.docx" download>Download the Word template</a></div>
+</div></header>
+<div class="layout">
+<aside class="side" aria-label="Course navigation">
+<h2>My course</h2><label for="code">Six-digit student code</label>
+<input id="code" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="off" placeholder="Enter your code">
+<button id="saveCode" style="width:100%;margin-top:10px">Save / switch code</button>
+<p class="small muted" id="codeStatus" aria-live="polite">Enter your code to see progress saved on this browser.</p>
+<div class="progress" aria-label="Overall mastery progress"><div id="sideProgress"></div></div>
+<p class="small" id="sideScore">0 of 29 mastery points</p>
+<div class="side-links">
+<a class="nav" href="#learning">01 · Learning path</a>
+<a class="nav" href="#companion">02 · Lesson-plan companion</a>
+<a class="nav" href="#resources">03 · Downloadable resources</a>
+<a class="nav" href="#finish">04 · Final checklist</a>
+</div>
+<div class="callout small">Use the <strong>same six-digit code</strong> in every chapter. Your name is not collected here.</div>
+</aside>
+<main>
+<section class="panel" id="learning"><div class="eyebrow" style="color:#2276a3">Your learning path</div><h2>Seven chapters. One lesson plan.</h2>
+<p class="muted">Practice as much as you need. Mastery questions can be retried. You can revisit any chapter after completing it.</p>
+<div class="statrow"><div class="stat"><strong id="points">0/29</strong><span class="small muted">Mastery points</span></div><div class="stat"><strong id="complete">0/7</strong><span class="small muted">Chapters mastered</span></div><div class="stat"><strong id="percent">0%</strong><span class="small muted">Overall mastery</span></div></div>
+<div class="progress" aria-label="Course mastery progress"><div id="overallProgress"></div></div>
+<div class="chapter-grid" id="chapters"></div>
+<div class="callout small"><strong>About your progress:</strong> This dashboard reads chapter mastery saved in this browser for your code. It cannot retrieve your Google Sheets record or progress saved only on another device. If you worked elsewhere, your score here may be incomplete. The chapter pages still report their own progress separately.</div>
+</section>
+<section class="panel" id="companion"><div class="eyebrow" style="color:#2276a3">Your working reference</div><h2>Lesson Plan Companion</h2>
+<p>Select any part of your actual template. See what belongs there, a stronger example, a response that needs improvement, and the chapter that teaches it.</p>
+<div class="companion-layout"><div class="section-buttons" id="sectionButtons" aria-label="Lesson-plan sections"></div>
+<article class="detail" id="detail" aria-live="polite"></article></div>
+</section>
+<section class="panel" id="resources"><div class="eyebrow" style="color:#2276a3">Keep these open</div><h2>Downloadable resources</h2>
+<div class="resource"><div><h3>UDL Lesson Plan Template with Explanations</h3><p class="small muted">The actual Word template for completing and submitting your lesson plan.</p></div><a class="btn" href="assets/CUED3500_Lesson_Plan_Template_with_Explanations.docx" download>Download template</a></div>
+<div class="resource"><div><h3>Lesson Plan Rubric</h3><p class="small muted">Review the grading expectations before you submit.</p></div><a class="btn secondary" href="assets/CUED3500_UDL_Lesson_Plan_Rubric.docx" download>Download rubric</a></div>
+<div class="warn"><strong>AI is a tool, not the final editor.</strong> It can brainstorm, organize, and offer examples, but it can also be wrong or miss what your assignment requires. You must check, revise, and take responsibility for everything in your lesson plan. Acknowledge how you used it.</div>
+</section>
+<section class="panel" id="finish"><div class="eyebrow" style="color:#2276a3">Before you submit</div><h2>Final lesson-plan check</h2><p class="muted">This checklist is for your actual document. It does not award mastery points.</p>
+<div class="checklist" id="checklist"></div><p class="small muted" id="checkStatus"></p>
+<div class="callout"><strong>Ready to submit?</strong> Make sure your plan tells the same story from standards to objectives, assessments, language, UDL, procedures, and the final sections. Completion of these modules is not a substitute for submitting the lesson plan in your course.</div>
+</section>
+<footer>CUED 3500 · Lesson Planning Home · This page does not collect student names or upload lesson-plan text.</footer>
+</main></div>
+<script>
+const CHAPTERS=[{"id": 1, "title": "Standards, Central Focus & Objectives", "file": "index.html", "max": 5, "key": "cued3500_ch1_v4_", "type": "mastered", "topics": "Standards · Conceptual and procedural thinking · SMART objectives"}, {"id": 2, "title": "Assessment & Alignment", "file": "chapter2.html", "max": 4, "key": "cued3500_ch2_interactive_v1_", "type": "mastery", "topics": "Informal formative · Formal formative · End-of-lesson"}, {"id": 3, "title": "Language Demands", "file": "chapter3.html", "max": 4, "key": "cued3500_ch3_interactive_v1_", "type": "mastery", "topics": "Language function · Student-friendly vocabulary"}, {"id": 4, "title": "Universal Design for Learning", "file": "chapter4.html", "max": 4, "key": "cued3500_ch4_interactive_v1_", "type": "mastery", "topics": "Engagement · Representation · Action & expression"}, {"id": 5, "title": "Instructional Procedures", "file": "chapter5.html", "max": 4, "key": "cued3500_ch5_procedures_v1_", "type": "mastery", "topics": "Opening · Launch · Practice · Debrief · Closing"}, {"id": 6, "title": "Diverse Learners", "file": "chapter6.html", "max": 4, "key": "cued3500_ch6_diverse_v1_", "type": "mastery", "topics": "Access for everyone · Meaningful enrichment"}, {"id": 7, "title": "Finish Your Lesson Plan", "file": "chapter7.html", "max": 4, "key": "cued3500_ch7_finish_v1_", "type": "mastery", "topics": "Materials · References · Misconceptions · Theory"}];
+const SECTIONS=[["Curriculum Standards", "1", "Keep the complete Tennessee standard with its identifier. Then narrow the portion taught today and restate that portion in child-friendly terms.", "TN 2.NBT.B.5 with only the addition portion selected; broken down: “Add two-digit numbers using tens and ones.”", "“Students will learn math.” This loses the specific state expectation.", "The original standard and today's focus are not the same thing."], ["Central Focus", "1", "Write one overarching content goal, then separate the key conceptual idea from the process students will perform.", "General: Explain plant-part functions. Conceptual: Explain how roots, stems, and leaves help a plant survive. Procedural: Identify and label the parts on a diagram.", "Conceptual: “Label the parts.” Procedural: “Understand why plants need roots.” The two are reversed.", "Conceptual is the why/how; procedural is the observable process."], ["Lesson Objectives", "1", "Write no more than three observable objectives aligned with what you teach and assess. Include a meaningful mastery criterion.", "Students will identify four major plant parts on a diagram with at least three correct.", "Students will understand plants.", "Match the performance and mastery criterion to the learning, not a default percentage."], ["Assessments", "2", "Plan an informal formative check, a formal formative check, and an end-of-lesson assessment. Specify what evidence each collects.", "Listen as partners explain plant-part functions; use a four-item response-card check; finish with a diagram and brief explanation aligned to the objective.", "“I will observe” and “give a quiz” without saying what students demonstrate.", "Assessments should match the objective, including its cognitive demand."], ["Content Vocabulary / Symbols", "3", "List only the words or symbols you will explicitly teach and give definitions children at this grade can understand and repeat.", "Roots: “The underground parts of a plant that suck up water and hold it in the soil.”", "Roots: “Specialized structures that absorb nutrients and anchor the organism.”", "Student-friendly means accurate and usable for this grade, not exhaustive."], ["Language Function", "3", "Choose ONE: compare, explain, or describe. Write a complete Students will… by… statement.", "Students will explain how roots help a plant by using a labeled diagram and a complete sentence.", "“Explain.” Or “Students will understand plant vocabulary.”", "Name what students do and how they will demonstrate the language function."], ["UDL: Engagement", "4", "Choose a specific engagement indicator and say exactly how it happens in the lesson.", "Students choose which of two familiar plants to examine while pursuing the same plant-part objective.", "“I will use UDL to keep students engaged.”", "The chosen strategy must appear in your instructional procedures."], ["UDL: Representation", "4", "Choose a specific representation indicator and explain how the content will be presented accessibly.", "The teacher uses a real plant and a labeled diagram while describing the same parts aloud.", "“I will use pictures.” No connection to what students learn.", "Show the strategy in action, not just the category name."], ["UDL: Action & Expression", "4", "Choose a specific action/expression indicator and describe how students demonstrate the same target learning.", "Students may point to movable labels or write labels, then explain the function of each part using the same criterion.", "“Students can do anything they want.”", "Different routes are fine, but the intended learning and mastery expectation stay the same."], ["Instructional Procedures", "5", "Describe the opening, launch, engage/practice, debrief, and closing. Include materials, teacher actions, student actions, checks, and the planned UDL strategies.", "The teacher models identifying roots on a real plant; students locate roots on their own diagram; the teacher checks responses and reteaches if needed.", "“Teach plant parts. Students do worksheet. Close lesson.”", "Another teacher should be able to teach it without inventing the instruction."], ["Diverse Learners: Supports", "6", "Describe proactive access points for all learners, especially those who may need more support. Preserve the same objective and mastery criterion.", "Provide a large-print diagram and movable labels so students can demonstrate plant-part identification without a fine-motor barrier.", "Give some students fewer required plant parts and call it the same objective.", "Supports belong in the instructional procedures, not only in this box."], ["Diverse Learners: Enrichment", "6", "Extend thinking about the SAME concept instead of assigning more work or unrelated busywork.", "Students predict what would happen if a plant lost its leaves and explain their reasoning.", "Students who finish early identify eight plant parts instead of four.", "Go deeper with the same content."], ["Materials", "7", "List the physical and digital items another teacher needs to carry out the procedures.", "Real plant, labeled diagrams, response cards, pencils, projector.", "“Science supplies.”", "Cross-check every step in the instructional procedures."], ["Resources / References", "7", "Credit the textbook, websites, borrowed activities, and AI assistance you actually used.", "AI Use: ChatGPT (OpenAI) was used to brainstorm potential student misconceptions. Suggestions were reviewed and adapted for this lesson.", "No acknowledgment after copying an AI-generated activity or explanation.", "You are responsible for checking the accuracy of anything you use."], ["Misconceptions", "7", "Identify ONE plausible incorrect belief and describe how you will head it off in instruction.", "Students may think roots take food from soil. During instruction, distinguish water absorption from food production in leaves.", "“Students might get confused about plants.”", "The prevention step must also appear in the instructional procedures."], ["Rationale / Theory", "7", "Use your Theorists Flipbook. Name a theorist from the course and connect a real instructional choice to the idea in a few sentences.", "Students handle a real plant, study a diagram, and use vocabulary to explain its parts, moving from concrete to visual and symbolic representations in a way consistent with Bruner.", "“I used Vygotsky because scaffolding is important.”", "Explain the connection; do not just name-drop a theorist."]];
+const CHECKS=[
+'My selected standard and broken-down standard describe the same intended content.',
+'My central focus, objectives, and assessments align.',
+'My vocabulary definitions are student-friendly, and my language function is specific.',
+'I chose specific UDL indicators for engagement, representation, and action/expression.',
+'My instructional procedures show those UDL strategies and contain enough detail for another teacher.',
+'My supports and enrichment preserve the same learning goal.',
+'My materials, references, and AI acknowledgment are complete.',
+'My one anticipated misconception is addressed proactively in the instructional procedures.',
+'My theory rationale connects an actual teaching choice to my Theorists Flipbook.',
+'I reviewed the rubric and checked my final lesson plan for consistency.'
+];
+let code=localStorage.getItem('cued3500_student_code')||'',selected=0;
+const byId=id=>document.getElementById(id);
+function safe(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function getState(ch){if(!/^\d{6}$/.test(code))return null;try{return JSON.parse(localStorage.getItem(ch.key+code)||'null')}catch(e){return null}}
+function scoreChapter(ch){const s=getState(ch);if(!s)return 0;if(ch.type==='mastered'){return Object.keys(s.mastered||{}).filter(k=>k.startsWith('5:')&&s.mastered[k]).length}return Object.values(s.mastery||{}).filter(v=>v===true).length}
+function renderProgress(){const ready=/^\d{6}$/.test(code);let total=0,complete=0;let markup='';
+for(const ch of CHAPTERS){let pts=ready?Math.min(ch.max,scoreChapter(ch)):0;total+=pts;if(pts===ch.max)complete++;let percent=Math.round(100*pts/ch.max);
+markup+=`<article class="chapter"><div class="chapter-top"><span class="num">${ch.id.toString().padStart(2,'0')}</span><span class="points">${ready?pts+'/'+ch.max+' mastery points':'Up to '+ch.max+' points'}</span></div><h3>${safe(ch.title)}</h3><p>${safe(ch.topics)}</p><div class="progress" aria-label="Chapter ${ch.id}: ${pts} of ${ch.max} mastery points"><div style="width:${percent}%"></div></div><div class="bottom"><a class="btn" href="${ch.file}">${pts===ch.max?'Review chapter':pts>0?'Continue chapter':'Open chapter'}</a>${ready&&pts===ch.max?'<span class="tag">Mastered</span>':''}</div></article>`}
+byId('chapters').innerHTML=markup;
+const max=CHAPTERS.reduce((a,c)=>a+c.max,0),pct=Math.round(100*total/max);
+byId('points').textContent=total+'/'+max;byId('complete').textContent=complete+'/'+CHAPTERS.length;byId('percent').textContent=pct+'%';byId('sideScore').textContent=total+' of '+max+' mastery points';
+byId('overallProgress').style.width=pct+'%';byId('sideProgress').style.width=pct+'%';
+byId('codeStatus').textContent=ready?'Showing locally saved mastery for code '+code+'.':'Enter a six-digit code to see saved mastery.';
+}
+function renderCompanion(){byId('sectionButtons').innerHTML=SECTIONS.map((s,i)=>`<button data-section="${i}" aria-pressed="${selected===i}">${safe(s[0])}</button>`).join('');
+const s=SECTIONS[selected];byId('detail').innerHTML=`<span class="tag">Chapter ${s[1]}</span><h3>${safe(s[0])}</h3><p>${safe(s[2])}</p><div class="example good"><strong>✓ Stronger example</strong>${safe(s[3])}</div><div class="example bad"><strong>△ Needs improvement</strong>${safe(s[4])}</div><div class="callout"><strong>Remember:</strong> ${safe(s[5])}</div><div class="bottom"><a class="btn secondary" href="${CHAPTERS[Number(s[1])-1].file}">Review Chapter ${s[1]}</a><a class="btn secondary" href="assets/CUED3500_Lesson_Plan_Template_with_Explanations.docx" download>Open template</a></div>`;
+byId('sectionButtons').querySelectorAll('button').forEach(b=>b.onclick=()=>{selected=Number(b.dataset.section);renderCompanion()})}
+function checklistKey(){return 'cued3500_home_checklist_'+code}
+function renderChecklist(){let saved={};if(/^\d{6}$/.test(code)){try{saved=JSON.parse(localStorage.getItem(checklistKey())||'{}')}catch(e){}}byId('checklist').innerHTML=CHECKS.map((v,i)=>`<label><input type="checkbox" data-check="${i}" ${saved[i]?'checked':''}><span>${safe(v)}</span></label>`).join('');const update=()=>{let values={};byId('checklist').querySelectorAll('input').forEach(el=>values[el.dataset.check]=el.checked);if(/^\d{6}$/.test(code))localStorage.setItem(checklistKey(),JSON.stringify(values));byId('checkStatus').textContent=Object.values(values).filter(Boolean).length+' of '+CHECKS.length+' items checked'+(/^\d{6}$/.test(code)?' (saved for this code on this browser).':' (enter a code to save).')};byId('checklist').querySelectorAll('input').forEach(el=>el.onchange=update);update()}
+byId('code').value=code;
+byId('saveCode').onclick=()=>{let value=byId('code').value.trim();if(!/^\d{6}$/.test(value)){byId('codeStatus').textContent='Please enter exactly six digits.';return}code=value;localStorage.setItem('cued3500_student_code',code);renderProgress();renderChecklist()};
+window.addEventListener('focus',renderProgress);document.addEventListener('visibilitychange',()=>{if(!document.hidden)renderProgress()});
+renderProgress();renderCompanion();renderChecklist();
+</script></body></html>
